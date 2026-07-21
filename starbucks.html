@@ -13,71 +13,51 @@ body {
     background-color: black;
 }
 
-.quiz {
-    background: white;
+.card {
+    background-image: url('../img/card.png');
+    background-size: cover;
     padding: 30px;
     border-radius: 10px;
-    width: 400px;
+    height: 500px;
+    width: 350px;
+    opacity: 0.55;
+
 }
 
-input {
-    width: 100%;
-    padding: 10px;
-    margin: 20px 0;
-    box-sizing: border-box;
+#passButton { 
+    background-image: url('../img/dl.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    color: black;
+    padding: 40px 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    left: 50%;
+    top: 50%;
+    display: block;
+    transform: translate(-50%, -50%);
+    position: relative;
 }
 
-#message {
-    color: red;
-}
 </style>
 </head>
 <body>
 
-<div class="quiz">
-    <h2>Worlds Best Coffee? Yeah.</h2>
 
+<div class="card">
+    Click to reveal your birthday treat!
 <a href="../files/Starbucks.pkpass" target="_blank" rel="noopener noreferrer" download>
-    <button>Well...</button>
+    <button id="passButton"></button>
 </a>
 
-    <input
-        id="answer"
-        type="text"
-        placeholder="Your answer..."
-        autocomplete="off"
-    >
-
-    <button onclick="checkAnswer()">Next</button>
-
-    <p id="message"></p>
 </div>
 
-<script>
-const correctAnswer = "yes";
-const nextPage = "/yes.html";
 
-function checkAnswer() {
-    const answer = document
-        .getElementById("answer")
-        .value
-        .trim()
-        .toLowerCase();
 
-    if (answer === correctAnswer) {
-        window.location.href = nextPage;
-    } else {
-        document.getElementById("message").textContent =
-            "Bad Girl! Please try again.";
-    }
-}
-
-document.getElementById("answer").addEventListener("keydown", function(e) {
-    if (e.key === "Enter") {
-        checkAnswer();
-    }
-});
-</script>
-
+<a href="" target="_blank" rel="noopener noreferrer" download>
+    <button>Next</button>
+</a>
 </body>
 </html>
