@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quiz Question</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: black;
+}
+
+.quiz {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 20px 0;
+    box-sizing: border-box;
+}
+
+#message {
+    color: red;
+}
+</style>
+</head>
+<body>
+
+<div class="quiz">
+    <h2>Next Question</h2>
+
+    <input
+        id="answer"
+        type="text"
+        placeholder="Your answer..."
+        autocomplete="off"
+    >
+
+    <button onclick="checkAnswer()">Next</button>
+
+    <p id="message"></p>
+</div>
+
+<script>
+const correctAnswer = "yes";
+const nextPage = "/map.html";
+
+function checkAnswer() {
+    const answer = document
+        .getElementById("answer")
+        .value
+        .trim()
+        .toLowerCase();
+
+    if (answer === correctAnswer) {
+        window.location.href = nextPage;
+    } else {
+        document.getElementById("message").textContent =
+            "Bad Girl! Please try again.";
+    }
+}
+
+document.getElementById("answer").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+        checkAnswer();
+    }
+});
+</script>
+
+</body>
+</html>
