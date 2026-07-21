@@ -46,7 +46,7 @@
         height: 12rem;
         object-fit: contain;
         border-radius: 18px;
-        margin-bottom: 7rem;
+        margin-bottom: 5rem;
       }
 
       .spotify-player {
@@ -69,6 +69,17 @@
         font-weight: 400;
         font-style: normal;
       }
+
+          #counter {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .label {
+        font-size: 1rem;
+        color: #aaa;
+        margin-bottom: 12px;
+    }
 
     </style>
   </head>
@@ -94,6 +105,44 @@
         <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/79BY6QNQu7FeL6DnaKu5wT?utm_source=generator&theme=0&si=c420b5c36e89492c" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
       </div>
+
+      <div>
+    <div class="label">Time since June 6, 2026</div>
+    <div id="counter"></div>
+</div>
+
+<script>
+const startDate = new Date("2026-06-06T00:00:00");
+
+function updateCounter() {
+    const now = new Date();
+    let diff = now - startDate;
+
+    if (diff < 0) {
+        document.getElementById("counter").textContent = "Not started yet";
+        return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    diff %= 1000 * 60 * 60 * 24;
+
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    diff %= 1000 * 60 * 60;
+
+    const minutes = Math.floor(diff / (1000 * 60));
+    diff %= 1000 * 60;
+
+    const seconds = Math.floor(diff / 1000);
+
+    document.getElementById("counter").textContent =
+        `${days}d ${hours.toString().padStart(2, "0")}h ` +
+        `${minutes.toString().padStart(2, "0")}m ` +
+        `${seconds.toString().padStart(2, "0")}s`;
+}
+
+updateCounter();
+setInterval(updateCounter, 1000);
+</script>
     </main>
   </body>
 </html>
