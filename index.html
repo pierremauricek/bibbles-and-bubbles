@@ -1,9 +1,63 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
-    <title>This is the title of the webpage!</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bibbles & Bubbles</title>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: #000;
+        color: #fff;
+        font-family: Arial, sans-serif;
+      }
+
+      main {
+        width: min(92vw, 900px);
+        padding: 40px 0;
+      }
+
+      .hero-image {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        border-radius: 18px;
+        background: #171717;
+      }
+
+      .spotify-player {
+        min-height: 152px;
+        margin-top: 24px;
+        padding: 20px;
+        border: 1px dashed #4a4a4a;
+        border-radius: 14px;
+        background: #121212;
+      }
+    </style>
   </head>
   <body>
-    <p>This is an example paragraph. Anything in the <strong>body</strong> tag will appear on the page, just like this <strong>p</strong> tag and its contents.</p>
+    <main>
+      <!-- Replace the image URL with your own image. -->
+      <img
+        class="hero-image"
+        src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=85"
+        alt="Ocean waves"
+      />
+
+      <!-- Paste your Spotify embed iframe inside this div. -->
+      <div class="spotify-player" id="spotify-player"></div>
+    </main>
   </body>
 </html>
