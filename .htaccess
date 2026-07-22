@@ -1,0 +1,5 @@
+RewriteEngine On
+
+# Block common search engines and crawlers
+RewriteCond %{HTTP_USER_AGENT} (googlebot|bingbot|slurp|duckduckbot|baiduspider|yandexbot|sogou|exabot|facebot|facebookexternalhit|ia_archiver|applebot|petalbot|semrushbot|ahrefsbot|mj12bot|dotbot|seznambot|ccbot|rogerbot|archive\.org_bot|crawler|spider|bot) [NC]
+RewriteRule .* - [F,L]
