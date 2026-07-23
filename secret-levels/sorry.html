@@ -101,11 +101,13 @@ body {
 <div class="quiz">
 
     <div class="quiz-content">
-        <h2>So... I guess this really happened...</h2>
+        <h2>Sorry, I lied to you :(</h2>
+        <img src="../img/sad.jpeg" alt="Sad Smiley" style="width: 50%; height: auto; border-radius: 20px;">
         <br>
+        <h2>There is no real Taylor Swift in this Birthday Tour...</h2>
         <br>
-        <video src="../files/recording.mp4" alt="Taylor Swift Video" style="width: 100%; height: auto; margin-top: 20px; margin-bottom: 80px; border-radius: 20px;" controls>
-
+        <h2>But here is a little something for you...</h2>
+        <br>
     </div>
     
    
@@ -123,10 +125,30 @@ const correctAnswer = "alison";
 const nextPage = "/secret-levels/sorry.html";
 
 function checkAnswer() {
+    const answer = document
+        .getElementById("answer")
+        .value
+        .trim()
+        .toLowerCase();
 
+    if (answer === correctAnswer) {
         window.location.href = nextPage;
+    } else {
+        document.getElementById("message").textContent =
+            "Very Bad Girl! Please try again.";
+    }
+}
 
-};
+function showHint() {
+    document.getElementById("message").textContent =
+        "It starts with an 'A' like 'Anal' and ends with a 'N' like 'Nonrepresentationalism'.";
+}
+
+document.getElementById("answer").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+        checkAnswer();
+    }
+});
 </script>
 
 </body>
