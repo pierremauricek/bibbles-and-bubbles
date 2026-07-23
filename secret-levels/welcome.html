@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Click the Nose</title>
+
+<style>
+body {
+    margin: 0;
+    background: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    position: relative;
+    display: inline-block;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Invisible button positioned over the nose */
+#noseButton {
+    position: absolute;
+
+    /* Adjust these values if needed */
+    left: 49%;
+    top: 43%;
+
+    width: 40px;
+    height: 40px;
+
+    transform: translate(-50%, -50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <img src="../img/taylor.jpg" alt="Image">
+
+    <button id="noseButton" aria-label="Play Audio"></button>
+</div>
+
+<audio id="audio">
+    <source src="../files/taylor.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const button = document.getElementById("noseButton");
+const audio = document.getElementById("audio");
+
+button.addEventListener("click", () => {
+    audio.currentTime = 0;
+    audio.play();
+});
+</script>
+
+</body>
+</html>
